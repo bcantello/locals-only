@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from rest_framework_jwt.settings import api_settings
 
-# Our JWT payload
+# JWT payload
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
@@ -37,9 +37,6 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """
-    This class represents our user model
-    """
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(db_index=True, unique=True)
     first_name = models.CharField(max_length=255, null=True, blank=True)
@@ -60,9 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     def token(self):
-        """
-        This allows us to get the users token and pass it to the API
-        """
         return self._generate_jwt_token()
 
     def _generate_jwt_token(self):

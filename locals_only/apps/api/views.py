@@ -9,7 +9,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        # list categories for current logged in user
         queryset = Category.objects.all().filter(owner=self.request.user)
         return queryset
 

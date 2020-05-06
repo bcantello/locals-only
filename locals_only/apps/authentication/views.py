@@ -33,8 +33,6 @@ class LoginApiView(APIView):
 
     def post(self, request):
         user = request.data.get('user', {})
-        # import pdb
-        # pdb.set_trace()
         if not user:
             user = {
                 "username": request.data.get('username'),
