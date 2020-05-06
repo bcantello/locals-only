@@ -19,7 +19,7 @@ class Activity(models.Model):
 
     name = models.CharField(max_length=100)
     location_city = models.CharField(max_length=255)
-    location_state = models.CharField(max_length=2)
+    location_state = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     details = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
