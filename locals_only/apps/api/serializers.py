@@ -10,7 +10,8 @@ class ActivitySerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'location',
+            'location_city',
+            'location_state',
             'description',
             'details',
             'owner',
@@ -23,7 +24,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    recipes = ActivitySerializer(many=True, read_only=True, required=False)
+    activity = ActivitySerializer(many=True, read_only=True, required=False)
 
     class Meta:
         model = Category

@@ -103,7 +103,7 @@ class PublicActivity(generics.ListAPIView):
     permission_classes = (AllowAny,)
 
     def get_queryset(self):
-        queryset = Activity.objects.all().filter(is_puplic=True)
+        queryset = Activity.objects.all().filter(is_public=True)
         return queryset
 
     serializer_class = ActivitySerializer

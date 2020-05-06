@@ -19,7 +19,8 @@ class Activity(models.Model):
     category = models.ForeignKey(Category, related_name='activities', on_delete=models.CASCADE)
 
     name = models.CharField(max_length=100)
-    location = models.CharField(max_length=255)
+    location_city = models.CharField(max_length=255)
+    location_state = models.CharField(max_length=2)
     description = models.TextField(blank=True)
     details = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
